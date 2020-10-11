@@ -3,8 +3,8 @@ from unittest.mock import Mock
 
 import pytest
 
-from tg_file_uploader.utils import argparse
-from tg_file_uploader.utils.argparse import validate, positive_int, clear_environ
+from tg_upload_proxy.utils import argparse
+from tg_upload_proxy.utils.argparse import validate, positive_int, clear_environ
 
 
 @pytest.mark.parametrize('value,expected', [

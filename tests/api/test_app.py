@@ -2,8 +2,8 @@ from unittest.mock import Mock
 
 import pytest
 
-from tg_file_uploader.api import app
-from tg_file_uploader.api.app import create_app
+from tg_upload_proxy.api import app
+from tg_upload_proxy.api.app import create_app
 
 
 @pytest.fixture

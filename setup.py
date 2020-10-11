@@ -5,7 +5,7 @@ from pkg_resources import parse_requirements
 from setuptools import find_packages, setup
 
 
-module_name = 'tg_file_uploader'
+module_name = 'tg_upload_proxy'
 
 module = SourceFileLoader(
     module_name, os.path.join(module_name, '__init__.py')
@@ -31,7 +31,7 @@ setup(
     license=module.__license__,
     description=module.__doc__,
     long_description=open('README.rst').read(),
-    url='https://github.com/yakimka/tg_file_uploader',
+    url='https://github.com/yakimka/tg_upload_proxy',
     python_requires='>=3.8',
     packages=find_packages(exclude=['tests']),
     install_requires=load_requirements('requirements.txt'),

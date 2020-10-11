@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from tg_file_uploader.utils import bot
+from tg_upload_proxy.utils import bot
 
 
 @pytest.fixture
