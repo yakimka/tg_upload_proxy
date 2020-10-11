@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, AsyncMock, patch
 
 import pytest
 
-from tg_file_uploader.api import view
+from tg_upload_proxy.api import view
 
 
 @pytest.fixture()
@@ -33,7 +33,7 @@ def request_data():
     }
 
 
-@patch('tg_file_uploader.api.view.utils.pack_bot_file_id')
+@patch('tg_upload_proxy.api.view.utils.pack_bot_file_id')
 async def test_send_audio(mock_pack_bot_file_id, mock_get_bot, api_client, request_data):
     mock_pack_bot_file_id.return_value = 'audio_file_id'
     response = await api_client.post('/sendAudio/', data=request_data)
@@ -43,7 +43,7 @@ async def test_send_audio(mock_pack_bot_file_id, mock_get_bot, api_client, reque
     assert 'audio_file_id' == data['file_id']
 
 
-@patch('tg_file_uploader.api.view.utils.pack_bot_file_id')
+@patch('tg_upload_proxy.api.view.utils.pack_bot_file_id')
 async def test_file_id_not_encoded(mock_pack_bot_file_id, mock_get_bot, api_client, request_data):
     mock_pack_bot_file_id.return_value = None
     response = await api_client.post('/sendAudio/', data=request_data)

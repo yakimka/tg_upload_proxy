@@ -1,9 +1,9 @@
-Telegram File Uploader
-======================
+Telegram Upload Proxy
+=====================
 
 Telegram Bot Api allows you to upload files up to 50 megabytes only.
 
-You can use tg_file_uploader for avoid this limit. This app uses MTProto for interaction with Telegram Bot API.
+You can use tg_upload_proxy for avoid this limit. This app uses MTProto for interaction with Telegram Bot API.
 
 Quote from `telethon <https://docs.telethon.dev/en/latest/concepts/botapi-vs-mtproto.html#what-is-bot-api/>`_ documentation:
 
@@ -28,7 +28,7 @@ App take configuration from these environment variables:
     TG_BOT_TOKEN - telegram bot token
 
 
-List of available commands:
+List of available arguments:
 ::
 
-    tg_file_uploader_api --help
+    tg_upload_proxy_api --help
