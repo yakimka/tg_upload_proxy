@@ -19,7 +19,7 @@ jobs:
         run: |
           make lint
 
-  build:
+  test:
 
     runs-on: ubuntu-latest
     steps:
