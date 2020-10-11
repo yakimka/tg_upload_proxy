@@ -32,3 +32,8 @@ List of available arguments:
 ::
 
     tg_upload_proxy_api --help
+
+API Documentation
+-----------------
+
+You can find Swagger UI on /docs/ page
