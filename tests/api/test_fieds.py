@@ -5,7 +5,7 @@ import pytest
 from aiohttp.web_request import FileField
 from marshmallow import ValidationError
 
-from tg_file_uploader.api.fields import FileOrString
+from tg_upload_proxy.api.fields import FileOrString
 
 
 class TestFileOrString:

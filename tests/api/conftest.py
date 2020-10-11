@@ -1,7 +1,7 @@
 import pytest
 
-from tg_file_uploader.api.__main__ import parser
-from tg_file_uploader.api.app import create_app
+from tg_upload_proxy.api.__main__ import parser
+from tg_upload_proxy.api.app import create_app
 
 
 @pytest.fixture
