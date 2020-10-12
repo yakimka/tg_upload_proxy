@@ -1,6 +1,6 @@
 .. image:: https://github.com/yakimka/tg_upload_proxy/workflows/build/badge.svg
-.. image:: https://codecov.io/gh/yakimka/tg_file_uploader/branch/master/graph/badge.svg?token=2BSYMWNY4K
-  :target: https://codecov.io/gh/yakimka/tg_file_uploader
+.. image:: https://codecov.io/gh/yakimka/tg_upload_proxy/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/yakimka/tg_upload_proxy
 
 Telegram Upload Proxy
 =====================
