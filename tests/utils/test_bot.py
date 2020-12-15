@@ -1,4 +1,4 @@
-from unittest.mock import Mock
+from unittest.mock import ANY, Mock
 
 import pytest
 
@@ -18,6 +18,6 @@ def test_get_client(monkeypatch, mock_tg_credentials):
 
     tg_bot = bot.get_bot()
 
-    mbot.assert_called_once_with('bot', 12345, 'my_hash')
+    mbot.assert_called_once_with(ANY, 12345, 'my_hash')
     mbot().start.assert_called_once_with(bot_token='my_token')
     assert mbot().start() == tg_bot

@@ -16,22 +16,24 @@ class SendAudioView(View):
     @response_schema(SendAudioResponse(), code=HTTPStatus.OK)
     async def post(self):
         data = self.request['data']
-        attrs = DocumentAttributeAudio(
+        attributes = [DocumentAttributeAudio(
             duration=data.pop('duration'),
             title=data.pop('title'),
             performer=data.pop('performer')
-        )
+        )]
 
         try:
-            res = await get_bot().send_file(
-                entity=data['chat_id'],
-                file=data['audio'],
-                caption=data.get('caption'),
-                parse_mode=data.get('parse_mode'),
-                thumb=data['thumb'],
-                reply_to=data['reply_to_message_id'],
-                attributes=[attrs]
-            )
+            bot = await get_bot()
+            async with bot:
+                res = await bot.send_file(
+                    entity=data['chat_id'],
+                    file=data['audio'],
+                    caption=data.get('caption'),
+                    parse_mode=data.get('parse_mode'),
+                    thumb=data['thumb'],
+                    reply_to=data['reply_to_message_id'],
+                    attributes=attributes
+                )
         except Exception as e:
             return web.Response(status=HTTPStatus.INTERNAL_SERVER_ERROR, text=str(e))
 

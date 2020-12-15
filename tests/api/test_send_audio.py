@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from unittest.mock import MagicMock, AsyncMock, patch
+from unittest.mock import AsyncMock, patch
 
 import pytest
 
@@ -8,8 +8,7 @@ from tg_upload_proxy.api import view
 
 @pytest.fixture()
 def mock_get_bot(monkeypatch):
-    mock_get_bot_ = MagicMock()
-    mock_get_bot_.return_value.send_file = AsyncMock()
+    mock_get_bot_ = AsyncMock()
     monkeypatch.setattr(view, 'get_bot', mock_get_bot_)
     return mock_get_bot_
 
@@ -62,7 +61,7 @@ async def test_send_file_error(mock_get_bot, api_client, request_data):
 
 
 async def test_empty_media(mock_get_bot, api_client, request_data):
-    mock_get_bot().send_file.return_value.media = None
+    mock_get_bot.return_value.send_file.return_value.media = None
 
     response = await api_client.post('/sendAudio/', data=request_data)
 
