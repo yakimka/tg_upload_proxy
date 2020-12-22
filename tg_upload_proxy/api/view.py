@@ -22,20 +22,17 @@ class SendAudioView(View):
             performer=data.pop('performer')
         )]
 
-        try:
-            bot = await get_bot()
-            async with bot:
-                res = await bot.send_file(
-                    entity=data['chat_id'],
-                    file=data['audio'],
-                    caption=data.get('caption'),
-                    parse_mode=data.get('parse_mode'),
-                    thumb=data['thumb'],
-                    reply_to=data['reply_to_message_id'],
-                    attributes=attributes
-                )
-        except Exception as e:
-            return web.Response(status=HTTPStatus.INTERNAL_SERVER_ERROR, text=str(e))
+        bot = await get_bot()
+        async with bot:
+            res = await bot.send_file(
+                entity=data['chat_id'],
+                file=data['audio'],
+                caption=data.get('caption'),
+                parse_mode=data.get('parse_mode'),
+                thumb=data['thumb'],
+                reply_to=data['reply_to_message_id'],
+                attributes=attributes
+            )
 
         if res.media is None:
             return web.Response(status=HTTPStatus.INTERNAL_SERVER_ERROR, text='Upload error')

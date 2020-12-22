@@ -4,5 +4,6 @@ aiomisc~=10.2.0
 configargparse~=1.2.3
 hachoir~=3.1.1
 marshmallow~=3.8.0
+sentry_sdk~=0.19.5
 setproctitle~=1.1.10
 telethon~=1.16.4

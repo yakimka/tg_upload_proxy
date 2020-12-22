@@ -52,12 +52,12 @@ async def test_file_id_not_encoded(mock_pack_bot_file_id, mock_get_bot, api_clie
 
 
 async def test_send_file_error(mock_get_bot, api_client, request_data):
-    mock_get_bot.return_value.send_file.side_effect = Exception('Oops...')
+    mock_get_bot.return_value.send_file.side_effect = ValueError('Oops...')
 
     response = await api_client.post('/sendAudio/', data=request_data)
 
     assert HTTPStatus.INTERNAL_SERVER_ERROR == response.status
-    assert 'Oops...' == await response.text()
+    assert 'Server got itself in trouble' in await response.text()
 
 
 async def test_empty_media(mock_get_bot, api_client, request_data):

@@ -2,9 +2,11 @@ import argparse
 import os
 from sys import argv
 
+import sentry_sdk
 from aiohttp.web import run_app
 from aiomisc.log import LogFormat, basic_config
 from configargparse import ArgumentParser
+from sentry_sdk.integrations.aiohttp import AioHttpIntegration
 from setproctitle import setproctitle
 
 from tg_upload_proxy.api.app import create_app
@@ -28,10 +30,17 @@ group.add_argument('--log-level', default='info',
                    choices=('debug', 'info', 'warning', 'error', 'fatal'))
 group.add_argument('--log-format', choices=LogFormat.choices(),
                    default='color')
+group.add_argument('--sentry-dsn')
+group.add_argument('--sentry-environment')
 
 
 def main():
     args = parser.parse_args()
+    sentry_sdk.init(
+        dsn=args.sentry_dsn,
+        environment=args.sentry_environment,
+        integrations=[AioHttpIntegration()]
+    )
 
     # Clear env variables of the app after start for security reasons.
     # Clear variables that starts with ENV_VAR_PREFIX.
