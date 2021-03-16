@@ -1,0 +1,21 @@
+name: build
+
+on:
+  push:
+    branches:
+      - "**"
+    tags-ignore:
+      - "*"
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build docker image
+        run: docker build --build-arg SKIP_TEST=true -t yakim/tg_upload_proxy .
+      - name: Smoke test
+        run: "docker run --rm yakim/tg_upload_proxy --help | grep 'usage: tg_upload_proxy_api '"

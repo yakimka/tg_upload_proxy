@@ -4,7 +4,7 @@ from tg_upload_proxy.api.__main__ import parser
 from tg_upload_proxy.api.app import create_app
 
 
-@pytest.fixture
+@pytest.fixture()
 def arguments(aiomisc_unused_port):
     """
     Аргументы для запуска приложения.
@@ -18,7 +18,7 @@ def arguments(aiomisc_unused_port):
     )
 
 
-@pytest.fixture
+@pytest.fixture()
 async def api_client(aiohttp_client, arguments):
     app = create_app()
     client = await aiohttp_client(app, server_kwargs={

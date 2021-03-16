@@ -1,5 +1,5 @@
 aiohttp_apispec~=2.2.1
-aiohttp~=3.6.2
+aiohttp~=3.7.4
 aiomisc~=10.2.0
 configargparse~=1.2.3
 hachoir~=3.1.1

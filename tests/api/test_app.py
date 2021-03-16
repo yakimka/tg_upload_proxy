@@ -6,14 +6,14 @@ from tg_upload_proxy.api import app
 from tg_upload_proxy.api.app import create_app
 
 
-@pytest.fixture
+@pytest.fixture()
 def mock_setup_aiohttp_apispec(monkeypatch):
     mock_setup_aiohttp_apispec = Mock()
     monkeypatch.setattr(app, 'setup_aiohttp_apispec', mock_setup_aiohttp_apispec)
     return mock_setup_aiohttp_apispec
 
 
-@pytest.fixture
+@pytest.fixture()
 def mock_application(monkeypatch):
     mock_application = Mock()
     monkeypatch.setattr(app.web, 'Application', mock_application)

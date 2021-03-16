@@ -1,4 +1,9 @@
 flake8
+flake8-bandit
+flake8-pytest
+flake8-pytest-style
 pytest
 pytest-aiohttp
 pytest-cov
+pytest-randomly
+pytest-timeout
