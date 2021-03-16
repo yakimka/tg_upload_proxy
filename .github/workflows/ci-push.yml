@@ -30,4 +30,4 @@ jobs:
           username: yakim
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Push images
-        run: docker push yakim/tg_upload_proxy
+        run: docker push yakim/tg_upload_proxy --all-tags
