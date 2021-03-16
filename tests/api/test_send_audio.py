@@ -24,7 +24,7 @@ async def test_missing_fields(mock_get_bot, api_client):
     assert expected == data
 
 
-@pytest.fixture
+@pytest.fixture()
 def request_data():
     return {
         'chat_id': 100123,

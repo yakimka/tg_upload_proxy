@@ -20,7 +20,7 @@ parser = ArgumentParser(
 )
 
 group = parser.add_argument_group('API Options')
-group.add_argument('--api-address', default='0.0.0.0',
+group.add_argument('--api-address', default='0.0.0.0',  # noqa: S104
                    help='IPv4/IPv6 address API server would listen on')
 group.add_argument('--api-port', type=positive_int, default=8081,
                    help='TCP port API server would listen on')
