@@ -5,5 +5,6 @@ flake8-pytest-style
 pytest
 pytest-aiohttp
 pytest-cov
+pytest-deadfixtures
 pytest-randomly
 pytest-timeout
