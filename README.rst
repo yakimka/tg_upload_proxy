@@ -21,6 +21,14 @@ Instalation
 
     python setup.py install
 
+or you can use Docker:
+
+::
+
+    docker run -p 8081:8081 -e TG_API_ID="API_ID" -e TG_API_HASH="API_HASH" -e TG_BOT_TOKEN="BOT_TOKEN" yakim/tg_upload_proxy
+
+Open `http://127.0.0.1:8081/docs/ <http://127.0.0.1:8081/docs/>`_ page in browser.
+
 Configuration
 -------------
 
